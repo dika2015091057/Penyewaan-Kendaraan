@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use Illuminate\Routing\RouteAction;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Routing\Loader\Configurator\RouteConfigurator;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +28,6 @@ route::get('/product',[ProductController::class, 'viewProduct']);
 route::put('/product',[ProductController::class,'updateProduct']);
 Route::delete('/product',[ProductController::class,'deleteProduct']);
 Route::get('/user',[UserController::class,'viewUser']); 
-
+Route::get('dashboard', [DashboardController::class, 'index'])->name('user.index');
+Route::get('landing', [LandingController::class, 'landing'])->name('landing');
 
